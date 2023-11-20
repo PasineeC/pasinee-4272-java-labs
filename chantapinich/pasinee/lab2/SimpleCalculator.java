@@ -1,11 +1,23 @@
 package chantapinich.pasinee.lab2;
 
+/**
+ * this program accept 3 arguments
+ * input = <first number> <second number> <operator>
+ * if input = 10 2 /
+ * output shoud be 10/2=5
+ * 
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class SimpleCalculator {
     public static void main(String[] args) {
 
         if (args.length != 3) {
             System.err.println("Error : Please provide exactly three arguments.");
         } else {
+            // num1 = <first number> , num2 = <second number>
             Integer num1 = Integer.parseInt(args[0]);
             Integer num2 = Integer.parseInt(args[1]);
             String operator = args[2];

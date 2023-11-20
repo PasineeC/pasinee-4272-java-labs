@@ -1,5 +1,11 @@
 package chantapinich.pasinee.lab2;
 
+/**
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class PrimitiveDataType {
     public static void main(String[] args) {
         String StudentID = "663040427-2";

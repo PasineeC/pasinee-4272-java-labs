@@ -1,14 +1,31 @@
 package chantapinich.pasinee.lab2;
 
+/**
+ * this program accept 2 arguments
+ * if input = pasinee chantapnich
+ * the output should be
+ * PasineeChantapinich
+ * 
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class CamelCaseNaming {
     public static void main(String[] args) {
         if (args.length != 2) {
             System.err.println("Error: Please provide exactly two arguments.");
         }
         else {
+            // f_name = first name and l_name = last name
             String f_name = args[0];
             String l_name = args[1];
             
+            /**
+             * upper first alphabet of first name and last name
+             * lower next alphabet of first name and last name 
+             * then mix it together
+            */
             String upper_f_name = f_name.substring(0,1).toUpperCase();
             String lower_f_name = f_name.substring(1).toLowerCase();
             String mix_f_name = upper_f_name + lower_f_name;
