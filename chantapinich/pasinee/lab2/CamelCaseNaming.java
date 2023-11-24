@@ -15,8 +15,7 @@ public class CamelCaseNaming {
     public static void main(String[] args) {
         if (args.length != 2) {
             System.err.println("Error: Please provide exactly two arguments.");
-        }
-        else {
+        } else {
             // f_name = first name and l_name = last name
             String f_name = args[0];
             String l_name = args[1];
@@ -36,7 +35,7 @@ public class CamelCaseNaming {
 
             String mix_all = mix_f_name + mix_l_name;
 
-            System.out.println(mix_all);
+            System.out.println("Camel Case Result: " + mix_all);
         }
     }
 }

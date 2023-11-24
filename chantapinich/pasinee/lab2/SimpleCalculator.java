@@ -30,7 +30,7 @@ public class SimpleCalculator {
             } else if (operator.equals("-")) {
                 int result2 = num1 - num2;
                 System.out.println(num1 + operator + num2 + "=" + result2);
-            } else if (operator.equals("*")) {
+            } else if (operator.equals("x")) {
                 int result3 = num1 * num2;
                 System.out.println(num1 + operator + num2 + "=" + result3);
             } else if (operator.equals("/")) {
@@ -38,7 +38,7 @@ public class SimpleCalculator {
                 System.out.println(num1 + operator + num2 + "=" + result4);
             } else {
                 System.err.println("Error: Invalid operator. Please use '+', '-', 'x', or '/'.");
-            }
+                }
         }
 
     }
