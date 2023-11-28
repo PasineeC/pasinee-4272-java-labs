@@ -42,18 +42,18 @@ public class NumberGuessingGames {
         min = input.nextInt();
         System.out.print("Enter the max value:");
         max = input.nextInt();
-        while (max <= 0 || max < min) {
-            if (max <= 0) {
-                System.out.println("The maximum number of tries must be greater than 0");
-            } else if (max < min) {
-                System.out.println("The max value must be at least equal to the min value");
-            }
+        while (max < min) {
+            System.out.println("The max value must be at least equal to the min value");
             System.out.print("Enter the max value:");
             max = input.nextInt();
         }
         System.out.print("Enter the maximum number of tries:");
         maxTries = input.nextInt();
-
+        while (maxTries <= 0) { 
+            System.out.println("The maximum number of tries must be greater than 0");
+            System.out.print("Enter the maximum number of tries:");
+            maxTries = input.nextInt();
+        }
     }
 
     static void genAnswer() {
