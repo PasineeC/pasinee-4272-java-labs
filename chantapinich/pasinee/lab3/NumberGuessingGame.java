@@ -2,8 +2,21 @@ package chantapinich.pasinee.lab3;
 
 import java.util.*;
 
+/**
+ * this program accepts 1 argument:
+ * - the user's guess between min and max
+ * 
+ * Output:
+ * - Correct guess: Congratulations! You tried <numTries> times(s)
+ * - Incorrect guess: Try a lower/higher number!
+ * - Out of guesses: You tried 5 times. You ran out of guesses. The answer is <answer>
+ * 
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class NumberGuessingGame {
-    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         int max = 20;
         int min = 1;
@@ -14,6 +27,7 @@ public class NumberGuessingGame {
 
         while (numTries < maxTries) {
             System.out.print("Enter an integer between 1 and 20:");
+            Scanner input = new Scanner(System.in);
             int numGuess = input.nextInt();
             numTries += 1;
             if (numTries == maxTries && numGuess != answer) {

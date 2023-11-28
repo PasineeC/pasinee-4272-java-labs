@@ -2,6 +2,31 @@ package chantapinich.pasinee.lab3;
 
 import java.util.*;
 
+/**
+ * this program accepts 4 arguments:
+ * - the minimum value for guessing 
+ * - the maximum value for guessing 
+ * - the maximum number of tries
+ * - the user's guess between min and maxS 
+ * 
+ * Functions:
+ * - configure(): Allows the user to set the min, max, and maxTries
+ *  (ensures max >= min and max > 0)
+ * - genAnswer() : Generates a random answer
+ * - playGame() : Runs the game, reading input, displaying output, and tracking remaining guesses
+ *  (checks if <numGuess> is within the range)
+ * 
+ * Output:
+ * - Correct guess: Congratulations! You tried <numTries> times(s)
+ * - Incorrect guess: Try a lower/higher number!
+ * - Out of guesses: You tried 5 times. You ran out of guesses. The answer is <answer>
+ * - Option to play again after the game ends
+ * 
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class NumberGuessingGames {
     static int answer, min, max, maxTries;
     static Scanner input = new Scanner(System.in);

@@ -2,6 +2,24 @@ package chantapinich.pasinee.lab3;
 
 import java.util.*;
 
+/**
+ * this program accepts 1 arguments:
+ * - the user's guess between min and max
+ * 
+ * Functions:
+ * - genAnswer() : Generates a random answer
+ * - playGame() : Runs the game, reading input, displaying output, and tracking remaining guesses
+ * 
+ * Output:
+ * - Correct guess: Congratulations! You tried <numTries> times(s)
+ * - Incorrect guess: Try a lower/higher number!
+ * - Out of guesses: You tried 5 times. You ran out of guesses. The answer is <answer>
+ * 
+ * Author: Pasinee Chantapinich
+ * ID: 663040427-2
+ * Sec: 1
+ */
+
 public class NumberGuessingMethodGame {
     static int answer;
     final static int MIN = 1;
