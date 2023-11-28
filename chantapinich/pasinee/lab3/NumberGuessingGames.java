@@ -11,7 +11,7 @@ import java.util.*;
  * 
  * Functions:
  * - configure(): Allows the user to set the min, max, and maxTries
- *  (ensures max >= min and max > 0)
+ *  (ensures max >= min and maxTries > 0)
  * - genAnswer() : Generates a random answer
  * - playGame() : Runs the game, reading input, displaying output, and tracking remaining guesses
  *  (checks if <numGuess> is within the range)
