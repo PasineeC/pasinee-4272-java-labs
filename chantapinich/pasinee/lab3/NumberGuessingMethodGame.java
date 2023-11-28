@@ -15,12 +15,12 @@ public class NumberGuessingMethodGame {
 
     static void genAnswer() {
         answer = MIN + (int) (Math.random() * ((MAX - MIN) + 1));
-        System.out.println("Welcome to a number guessing game!");
     }
 
     static void playGame() {
         int numTries = 0;
         int maxTries = 5;
+        System.out.println("Welcome to a number guessing game!");
         while (numTries < maxTries) {
             System.out.print("Enter an integer between 1 and 20:");
             int numGuess = input.nextInt();

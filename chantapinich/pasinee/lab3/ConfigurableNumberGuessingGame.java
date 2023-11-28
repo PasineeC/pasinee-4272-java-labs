@@ -23,11 +23,11 @@ public class ConfigurableNumberGuessingGame {
 
     static void genAnswer() {
         answer = min + (int) (Math.random() * ((max - min) + 1));
-        System.out.println("Welcome to a number guessing game!");
     }
 
     static void playGame() {
         numTries = 0;
+        System.out.println("Welcome to a number guessing game!");
         while (numTries < maxTries) {
             System.out.print("Enter an integer between " + min + " and " + max + ":");
             int numGuess = input.nextInt();

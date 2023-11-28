@@ -5,11 +5,12 @@ import java.util.*;
 public class NumberGuessingGame {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        int answer = 1 + (int) (Math.random() * (20 + 1));
+        int max = 20;
+        int min = 1;
+        int answer = min + (int) (Math.random() * ((max - min) + 1));
         int numTries = 0;
         int maxTries = 5;
         System.out.println("Welcome to a number guessing game!");
-        System.out.println(answer);
 
         while (numTries < maxTries) {
             System.out.print("Enter an integer between 1 and 20:");
