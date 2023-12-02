@@ -1,3 +1,4 @@
+
 package chantapinich.pasinee.lab3;
 
 import java.util.*;
@@ -23,6 +24,7 @@ public class NumberGuessingGame {
         int answer = min + (int) (Math.random() * ((max - min) + 1));
         int numTries = 0;
         int maxTries = 5;
+        System.out.println(answer);
         System.out.println("Welcome to a number guessing game!");
 
         while (numTries < maxTries) {

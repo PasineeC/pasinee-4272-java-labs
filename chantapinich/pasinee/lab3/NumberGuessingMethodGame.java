@@ -28,6 +28,7 @@ public class NumberGuessingMethodGame {
 
     public static void main(String[] args) {
         genAnswer();
+        System.out.println(answer);
         playGame();
     }
 
