@@ -77,7 +77,11 @@ public class GuessNumberGamesV2 {
             // Check the guess againt the answer
             if (numTries == maxTries && numGuess != answer) {
                 // Out of tries
-                System.out.println("You have tried " + numTries + " times. You ran out of guesses");
+                if (numTries == 1){
+                    System.out.println("You have tried 1 time. You ran out of guesses");
+                }else { 
+                    System.out.println("You have tried " + numTries + " times. You ran out of guesses");
+                }
                 System.out.println("The answer is " + answer);
                 break;
             } else if (numGuess > answer) {
