@@ -20,7 +20,6 @@ import java.util.*;
  */
 
 public class DisplayMatrixOptions {
-    // Scanner object for user input
     static Scanner input = new Scanner(System.in);
     static int rows, columns;
     static int[][] matrix;

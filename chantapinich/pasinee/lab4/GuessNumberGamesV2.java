@@ -20,18 +20,15 @@ import java.util.*;
  */
 
 public class GuessNumberGamesV2 {
-    // Global variable for the guessing game
     static int answer, min, max, maxTries;
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // start the game
         configure();
         genAnswer();
         playGames();
     }
 
-    // Method to configure the game settings
     static void configure() {
         System.out.print("Enter the min value:");
         min = input.nextInt();
@@ -51,18 +48,15 @@ public class GuessNumberGamesV2 {
         }
     }
 
-    // Method to generate a random answer within the specified range
     static void genAnswer() {
         answer = min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    // Method to play the guessing game
     static void playGames() {
         List<Integer> listNumGuess = new ArrayList<>();
         int numTries = 0;
         System.out.println("Welcome to a number guessing game!");
 
-        // Main game loop
         while (numTries < maxTries) {
             System.out.print("Enter an integer between " + min + " and " + max + ":");
             int numGuess = input.nextInt();
@@ -70,13 +64,10 @@ public class GuessNumberGamesV2 {
                 System.out.print("Your guess should be in [" + min + "," + max + "]:");
                 numGuess = input.nextInt();
             }
-            // Add the guess to the list of number guessing and increase the number of tries
             listNumGuess.add(numGuess);
             numTries += 1;
 
-            // Check the guess againt the answer
             if (numTries == maxTries && numGuess != answer) {
-                // Out of tries
                 if (numTries == 1){
                     System.out.println("You have tried 1 time. You ran out of guesses");
                 }else { 
@@ -89,7 +80,6 @@ public class GuessNumberGamesV2 {
             } else if (numGuess < answer) {
                 System.out.println("Try a higher number!");
             } else if (numGuess == answer) {
-                // Correct guess
                 System.out.println("Congratulations!");
                 if (numTries == 1) {
                     System.out.println("You have tried " + numTries + " time");
@@ -101,12 +91,10 @@ public class GuessNumberGamesV2 {
             }
         }
 
-        // Users prompt to list guesses or quit
         while (true) {
             System.out.print("Enter 'a' to list all guesses, 'g' for a specific guess, or any other key to quit: ");
             String guesses = input.next();
             if (guesses.equals("a")) {
-                // List all guesses
                 System.out.println("All guesses: ");
                 for (int allGuesses : listNumGuess) {
                     System.out.print(allGuesses);
@@ -114,25 +102,20 @@ public class GuessNumberGamesV2 {
                 }
                 System.out.println();
             } else if (guesses.equals("g")) {
-                // Display a specific guess
                 System.out.print("Enter the number of the guess you want to see (1-" + numTries + "): ");
                 int specificGuess = input.nextInt();
                 System.out.println("Guess " + specificGuess + ": " + listNumGuess.get(specificGuess - 1));
             } else {
-                // Exit the loop
                 break;
             }
         }
 
-        // Prompt to play again or exit
         System.out.print("Want to play again (Y or y):");
         String playAgain = input.next();
         if (playAgain.equals("y") || playAgain.equals("Y")) {
-            // Restart the game
             genAnswer();
             playGames();
         } else {
-            // Exit the game
             System.out.println("Thank you for playing our games. Bye!");
         }
     }

@@ -19,7 +19,6 @@ import java.util.*;
 */
 
 public class GuessNumberGamesV3 {
-    // Global variables for the guessing game
     static int answer, min, max, maxTries, sumNumguess, totalGameplay, totalWin;
     static float winRatio, averageNumguess;
     static String winCheck;
@@ -27,7 +26,6 @@ public class GuessNumberGamesV3 {
     static List<Integer> allNumGuess = new ArrayList<>();
 
     public static void main(String[] args) {
-        // Initialize game statistics and start the first game
         totalGameplay = 1;
         totalWin = 0;
         configure();
@@ -55,34 +53,27 @@ public class GuessNumberGamesV3 {
         }
     }
 
-    // Method to generate a random answer within the specified range
     static void genAnswer() {
         answer = min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    // Method to play the guessing game
     static void playGames() {
         List<Integer> listNumGuess = new ArrayList<>();
         int numTries = 0;
         System.out.println("Welcome to a number guessing game!");
-        // Main game loop
         while (numTries < maxTries) {
-            // User input for a guess
             System.out.print("Enter an integer between " + min + " and " + max + ":");
             int numGuess = input.nextInt();
             while (numGuess < min || numGuess > max) {
                 System.out.print("Your guess should be in [" + min + "," + max + "]:");
                 numGuess = input.nextInt();
             }
-            // Add the guess to the list and increase the number of tries
             listNumGuess.add(numGuess);
             numTries += 1;
-            // Check the guess against the answer
             if (numTries == maxTries && numGuess != answer) {
-                // Out of tries
-                if (numTries == 1){
+                if (numTries == 1) {
                     System.out.println("You have tried 1 time. You ran out of guesses");
-                }else { 
+                } else {
                     System.out.println("You have tried " + numTries + " times. You ran out of guesses");
                 }
                 System.out.println("The answer is " + answer);
@@ -92,11 +83,9 @@ public class GuessNumberGamesV3 {
             } else if (numGuess < answer) {
                 System.out.println("Try a higher number!");
             } else if (numGuess == answer) {
-                // Correct guess
                 System.out.println("Congratulations!");
                 totalWin++;
 
-                // Display number of tries
                 if (numTries == 1) {
                     System.out.println("You have tried " + numTries + " time");
                     break;
@@ -107,15 +96,12 @@ public class GuessNumberGamesV3 {
             }
         }
 
-        // Add the number of guesses to the overall list
         allNumGuess.add(listNumGuess.size());
 
-        // User prompt to list guesses or quit
         while (true) {
             System.out.print("Enter 'a' to list all guesses, 'g' for a specific guess, or any other key to quit: ");
             String guesses = input.next();
             if (guesses.equals("a")) {
-                // List all guesses
                 System.out.println("All guesses: ");
                 for (int allGuesses : listNumGuess) {
                     System.out.print(allGuesses);
@@ -123,34 +109,29 @@ public class GuessNumberGamesV3 {
                 }
                 System.out.println();
             } else if (guesses.equals("g")) {
-                // Display a specific guess
                 System.out.print("Enter the number of the guess you want to see (1-" + numTries + "):");
                 int specificGuess = input.nextInt();
                 System.out.println("Guess " + specificGuess + ": " + listNumGuess.get(specificGuess - 1));
             } else {
-                // Exit the loop
                 break;
             }
         }
 
-        // Check if the user won or lost
         if (numTries < maxTries) {
             winCheck = "true";
         } else {
             winCheck = "false";
         }
-        // Display game log
+
         System.out.println("Game Log: " + "Answer: " + answer + ", Guesses: " + numTries + ", Win: " + winCheck);
-        // Prompt to play again or exit
+
         System.out.print("Want to play again (Y or y):");
         String playAgain = input.next();
         if (playAgain.equals("y") || playAgain.equals("Y")) {
-            // Start a new game
             totalGameplay++;
             genAnswer();
             playGames();
         } else {
-            // Display game statistics
             sumNumguess = 0;
             for (int i = 0; i < allNumGuess.size(); i++) {
                 sumNumguess += allNumGuess.get(i);
@@ -162,8 +143,6 @@ public class GuessNumberGamesV3 {
             System.out.println("Total wins: " + totalWin);
             System.out.println("Win Ratio: " + winRatio + "%");
             System.out.println("Average guess per game: " + averageNumguess);
-
-            // Display high score if available
             if (totalWin == 0) {
                 System.out.println("High Score (Least Guesses): N/A");
             } else {

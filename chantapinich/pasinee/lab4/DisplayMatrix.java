@@ -15,7 +15,6 @@ import java.util.*;
  */
 
 public class DisplayMatrix {
-    // Scanner object for user input
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -38,7 +37,6 @@ public class DisplayMatrix {
                 b = input.nextInt();
             }
 
-            // Create a 2D array
             int[][] matrix = new int[a][b];
 
             // User input for each element of the matrix
@@ -48,8 +46,7 @@ public class DisplayMatrix {
                     matrix[i][j] = input.nextInt();
                 }
             }
-
-            // Display the created matrix
+            
             System.out.println("Displaying Matrix: ");
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
