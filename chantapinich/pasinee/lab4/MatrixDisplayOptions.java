@@ -19,7 +19,7 @@ import java.util.*;
  * 
  */
 
-public class DisplayMatrixOptions {
+public class MatrixDisplayOptions {
     static Scanner input = new Scanner(System.in);
     static int rows, columns;
     static int[][] matrix;
