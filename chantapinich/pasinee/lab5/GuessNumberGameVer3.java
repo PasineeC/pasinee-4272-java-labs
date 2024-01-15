@@ -62,6 +62,7 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2 {
     }
 
     // Method to play game include additional commands for statistical features
+    @Override
     public void playGames() {
         playGame();
         while (true) {

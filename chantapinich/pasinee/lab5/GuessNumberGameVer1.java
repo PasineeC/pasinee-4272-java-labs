@@ -17,8 +17,7 @@ import java.util.Scanner;
  */
 
 public class GuessNumberGameVer1 {
-    protected int minNum, maxNum, maxTries;
-    protected int correctNum;
+    protected int minNum, maxNum, maxTries,correctNum;
     protected static int numOfGames = 0;
     Scanner input;
     int numGuess;
