@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestGame3",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab6.TestGame3",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
             "name": "test",
             "request": "launch",
             "mainClass": "test",
