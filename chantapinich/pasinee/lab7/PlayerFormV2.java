@@ -81,12 +81,10 @@ public class PlayerFormV2 extends PlayerFormV1 {
 
     @Override
     protected void addComponents() {
+        super.addComponents();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.add(createAndGetInfoPanel());
-        mainPanel.add(createAndGetTypePanel());
-        mainPanel.add(createAndGetNotePanel());
-        mainPanel.add(createAndGetButtonPanel());
-        add(mainPanel);
+        mainPanel.add(createAndGetTypePanel(),1);
+        mainPanel.add(createAndGetNotePanel(),2);
     }
 
     public static void createAndShowGUI() {

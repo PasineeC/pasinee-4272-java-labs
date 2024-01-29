@@ -84,10 +84,9 @@ public class PlayerFormV1 extends MySimpleWindow {
 
     @Override
     protected void addComponents() {
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(createAndGetInfoPanel(), BorderLayout.NORTH);
-        mainPanel.add(createAndGetButtonPanel(), BorderLayout.SOUTH);
-        add(mainPanel);
+        super.addComponents();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+        mainPanel.add(createAndGetInfoPanel(),0);
     }
 
     public static void createAndShowGUI() {
