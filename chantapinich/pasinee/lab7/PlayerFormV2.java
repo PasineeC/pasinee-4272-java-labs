@@ -14,6 +14,8 @@ package chantapinich.pasinee.lab7;
  * - PlayerFormV2(String title): Constructor that takes a title for the form.
  * 
  * Methods:
+ * - createAndGetTypePanel(): Initializes and returns the typePanel containing the "Player Type" label and the typeCb JComboBox.
+ * - createAndGetNotePanel(): Initializes and returns the notePanel containing the "Note" label and the noteTa JTextArea with scrolling.
  * - addComponents(): Overrides the addComponents method of PlayerFormV1 to add additional components specific to PlayerFormV2.
  * - setFrameFeatures(): Overrides the setFrameFeatures method of PlayerFormV1.
  * - createAndShowGUI(): Static method to create and show an instance of PlayerFormV2.
@@ -32,7 +34,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
     protected JComboBox<String> typeCb;
     protected JTextArea noteTa;
     protected JScrollPane scrollPane;
-    protected JPanel typePanel, notePanel, middlePanel;
+    protected JPanel typePanel, notePanel;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -46,17 +48,23 @@ public class PlayerFormV2 extends PlayerFormV1 {
         super(title);
     }
 
-    @Override
-    protected void addComponents() {
-        super.addComponents();
+    public JPanel createAndGetTypePanel() {
         typeLabel = new JLabel("Player Type: ");
-        noteLabel = new JLabel("Note: ");
 
         typeCb = new JComboBox<String>();
         typeCb.addItem("Beginner");
         typeCb.addItem("Amateur");
         typeCb.addItem("Professional");
         typeCb.setSelectedItem("Amateur");
+
+        typePanel = new JPanel(new GridLayout(1, 2));
+        typePanel.add(typeLabel);
+        typePanel.add(typeCb);
+        return typePanel;
+    }
+
+    public JPanel createAndGetNotePanel() {
+        noteLabel = new JLabel("Note: ");
 
         noteTa = new JTextArea(3, 35);
         noteTa.setText(
@@ -65,28 +73,20 @@ public class PlayerFormV2 extends PlayerFormV1 {
         noteTa.setWrapStyleWord(true);
         scrollPane = new JScrollPane(noteTa);
 
-        typePanel = new JPanel(new BorderLayout());
-        typePanel.add(typeLabel, BorderLayout.WEST);
-        typePanel.add(typeCb, BorderLayout.EAST);
-
         notePanel = new JPanel(new BorderLayout());
         notePanel.add(noteLabel, BorderLayout.WEST);
         notePanel.add(scrollPane, BorderLayout.SOUTH);
-
-        middlePanel = new JPanel(new BorderLayout());
-        middlePanel.add(typePanel, BorderLayout.NORTH);
-        middlePanel.add(notePanel, BorderLayout.SOUTH);
-
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(topPanel, BorderLayout.NORTH);
-        mainPanel.add(middlePanel, BorderLayout.CENTER);
-        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
-        add(mainPanel);
+        return notePanel;
     }
 
     @Override
-    protected void setFrameFeatures() {
-        super.setFrameFeatures();
+    protected void addComponents() {
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.add(createAndGetInfoPanel());
+        mainPanel.add(createAndGetTypePanel());
+        mainPanel.add(createAndGetNotePanel());
+        mainPanel.add(createAndGetButtonPanel());
+        add(mainPanel);
     }
 
     public static void createAndShowGUI() {

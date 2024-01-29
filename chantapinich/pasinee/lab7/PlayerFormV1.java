@@ -13,6 +13,8 @@ package chantapinich.pasinee.lab7;
  * - PlayerFormV1(String title): Constructor that takes a title for the form.
  * 
  * Methods:
+ * - creatAndGetGenderPanel(): Initializes and returns the genderPanel containing the "Male" and "Female" radio buttons.
+ * - createAndGetInfoPanel(): Initializes and returns the playerInfo panel containing labels, text fields, and the genderPanel.
  * - addComponents(): Overrides the addComponents method of MySimpleWindow to add additional components specific to PlayerFormV1.
  * - setFrameFeatures(): Overrides the setFrameFeatures method of MySimpleWindow.
  * - createAndShowGUI(): Static method to create and show an instance of PlayerFormV1.
@@ -30,7 +32,7 @@ public class PlayerFormV1 extends MySimpleWindow {
     protected JTextField nameTextField, nationalTextField, birthTextField;
     protected JLabel nameLabel, nationalLabel, birthLabel, genderLabel;
     protected JRadioButton maleRadio, femaleRadio;
-    protected JPanel genderPanel, topPanel;
+    protected JPanel genderPanel, playerInfo;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -44,19 +46,7 @@ public class PlayerFormV1 extends MySimpleWindow {
         super(title);
     }
 
-    @Override
-    protected void addComponents() {
-        super.addComponents();
-
-        genderLabel = new JLabel("Gender: ");
-        nameLabel = new JLabel("Name: ");
-        nationalLabel = new JLabel("Nationality: ");
-        birthLabel = new JLabel("Date of Birth (eg.,31-01-2005): ");
-
-        nameTextField = new JTextField(15);
-        nationalTextField = new JTextField(15);
-        birthTextField = new JTextField(15);
-
+    public JPanel creatAndGetGenderPanel() {
         ButtonGroup genderGroup = new ButtonGroup();
         maleRadio = new JRadioButton("Male");
         femaleRadio = new JRadioButton("Female", true);
@@ -66,28 +56,38 @@ public class PlayerFormV1 extends MySimpleWindow {
         genderPanel.add(maleRadio);
         genderPanel.add(femaleRadio);
 
-        topPanel = new JPanel(new GridLayout(4, 2));
-        topPanel.add(nameLabel);
-        topPanel.add(nameTextField);
+        return genderPanel;
+    }
 
-        topPanel.add(nationalLabel);
-        topPanel.add(nationalTextField);
+    public JPanel createAndGetInfoPanel() {
+        genderLabel = new JLabel("Gender: ");
+        nameLabel = new JLabel("Name: ");
+        nationalLabel = new JLabel("Nationality: ");
+        birthLabel = new JLabel("Date of Birth (eg.,31-01-2005): ");
 
-        topPanel.add(birthLabel);
-        topPanel.add(birthTextField);
+        nameTextField = new JTextField(15);
+        nationalTextField = new JTextField(15);
+        birthTextField = new JTextField(15);
 
-        topPanel.add(genderLabel);
-        topPanel.add(genderPanel);
+        playerInfo = new JPanel(new GridLayout(4, 2));
+        playerInfo.add(nameLabel);
+        playerInfo.add(nameTextField);
+        playerInfo.add(nationalLabel);
+        playerInfo.add(nationalTextField);
+        playerInfo.add(birthLabel);
+        playerInfo.add(birthTextField);
+        playerInfo.add(genderLabel);
+        playerInfo.add(creatAndGetGenderPanel());
 
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(topPanel, BorderLayout.NORTH);
-        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
-        add(mainPanel);
+        return playerInfo;
     }
 
     @Override
-    protected void setFrameFeatures() {
-        super.setFrameFeatures();
+    protected void addComponents() {
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(createAndGetInfoPanel(), BorderLayout.NORTH);
+        mainPanel.add(createAndGetButtonPanel(), BorderLayout.SOUTH);
+        add(mainPanel);
     }
 
     public static void createAndShowGUI() {

@@ -12,7 +12,8 @@ package chantapinich.pasinee.lab7;
  * - MySimpleWindow(String title): Constructor that takes a title for the window.
  * 
  * Methods:
- * - addComponents(): Initializes and adds the buttons to the buttonPanel, and then adds the buttonPanel to the mainPanel.
+ * - createAndGetButtonPanel(): Initializes and returns the buttonPanel containing the "Reset" and "Submit" buttons.
+ * - addComponents(): Sets the layout of the mainPanel and adds the buttonPanel to it.
  * - setFrameFeatures(): Sets features for the JFrame, such as visibility, location, default close operation, and packing.
  * - createAndShowGUI(): Static method to create and show an instance of MySimpleWindow.
  * 
@@ -26,7 +27,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MySimpleWindow extends JFrame {
-    protected JPanel mainPanel,buttonPanel;
+    protected JPanel mainPanel = new JPanel();
+    protected JPanel buttonPanel;
     protected JButton resetButton, submitButton;
 
     public static void main(String[] args) {
@@ -41,17 +43,18 @@ public class MySimpleWindow extends JFrame {
         super(title);
     }
 
-    protected void addComponents() {
+    protected JPanel createAndGetButtonPanel() {
         resetButton = new JButton("Reset");
         submitButton = new JButton("Submit");
         buttonPanel = new JPanel();
-
         buttonPanel.add(resetButton);
         buttonPanel.add(submitButton);
+        return buttonPanel;
+    }
 
-        mainPanel = new JPanel();
+    protected void addComponents() {
         mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(buttonPanel, BorderLayout.CENTER);
+        mainPanel.add(createAndGetButtonPanel(), BorderLayout.CENTER);
         add(mainPanel);
     }
 
