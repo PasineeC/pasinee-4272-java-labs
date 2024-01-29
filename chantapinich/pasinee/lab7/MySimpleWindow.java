@@ -59,10 +59,10 @@ public class MySimpleWindow extends JFrame {
     }
 
     protected void setFrameFeatures() {
+        this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
     }
 
     public static void createAndShowGUI() {
