@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PlayerFormV3",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab8.PlayerFormV3",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV5",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab8.PlayerFormV5",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV4",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab8.PlayerFormV4",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
             "name": "TestGuessNumberGameVer4",
             "request": "launch",
             "mainClass": "chantapinich.pasinee.lab7.TestGuessNumberGameVer4",
