@@ -40,9 +40,9 @@ public class PlayerFormV5 extends PlayerFormV4 {
     @Override
     protected JMenu createAndGetFileMenu() {
         super.createAndGetFileMenu();
-        newIcon = new ImageIcon("chantapinich\\pasinee\\imageLab8\\New-icon.png");
-        openIcon = new ImageIcon("chantapinich\\pasinee\\imageLab8\\Open-icon.png");
-        saveIcon = new ImageIcon("chantapinich\\pasinee\\imageLab8\\Save-icon.png");
+        newIcon = new ImageIcon("chantapinich/pasinee/imageLab8/New-icon.png");
+        openIcon = new ImageIcon("chantapinich/pasinee/imageLab8/Open-icon.png");
+        saveIcon = new ImageIcon("chantapinich/pasinee/imageLab8/Save-icon.png");
 
         newMI.setIcon(newIcon);
         openMI.setIcon(openIcon);
