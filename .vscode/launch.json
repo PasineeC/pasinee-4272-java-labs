@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiceImageWindow",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab9.DiceImageWindow",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
             "name": "PlayerFormV3",
             "request": "launch",
             "mainClass": "chantapinich.pasinee.lab8.PlayerFormV3",

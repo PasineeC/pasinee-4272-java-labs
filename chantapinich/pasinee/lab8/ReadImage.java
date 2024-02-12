@@ -28,7 +28,7 @@ import javax.swing.*;
 
 public class ReadImage extends JPanel {
     protected BufferedImage img;
-    protected String imgFile = "chantapinich\\pasinee\\lab8\\image\\car.jpg";
+    protected String imgFile = "chantapinich\\pasinee\\imageLab8\\car.jpg";
 
     @Override
     public void paintComponent(Graphics g) {
