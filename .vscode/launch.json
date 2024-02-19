@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PlayerFormV9",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab10.PlayerFormV9",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV8",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab10.PlayerFormV8",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV7",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab9.PlayerFormV7",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV6",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab9.PlayerFormV6",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "GuessNumberGamesV2",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab4.GuessNumberGamesV2",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "GuessNumberGamesV3",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab4.GuessNumberGamesV3",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
             "name": "DiceImageWindow",
             "request": "launch",
             "mainClass": "chantapinich.pasinee.lab9.DiceImageWindow",
