@@ -17,10 +17,10 @@ import java.util.*;
  * - DiceImageWindow(String title): Initializes the window with the given title.
  * 
  * Methods:
+ * - main(String[] args): Entry point for running the application.
  * - setFrameFeatures(): Sets features for the JFrame, such as size, location, and visibility.
  * - addComponents(): Adds buttons and the dice image canvas to the window.
  * - createAndShowGUI(): Static method to create and show an instance of DiceImageWindow.
- * - main(String[] args): Entry point for running the application.
  * 
  * Author: Pasinee Chantapinich
  * ID: 663040427-2
@@ -34,11 +34,18 @@ public class DiceImageWindow extends JFrame {
     protected JPanel buttonsPanel;
     protected JButton rollButton, highButton, lowButton;
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+
     public DiceImageWindow(String title) {
         super(title);
         Random rand = new Random();
-        // diceRoll = rand.nextInt(6) + 1;
-        diceRoll = 1;
+        diceRoll = rand.nextInt(6) + 1;
         diceImageCanvas = new DiceImageCanvas(diceRoll);
     }
 
@@ -69,11 +76,4 @@ public class DiceImageWindow extends JFrame {
         dgw.setFrameFeatures();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
 }
