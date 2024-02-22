@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab10.test",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV11",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab10.PlayerFormV11",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
+            "name": "PlayerFormV10",
+            "request": "launch",
+            "mainClass": "chantapinich.pasinee.lab10.PlayerFormV10",
+            "projectName": "pasinee-4272-java-labs_6ab99cae"
+        },
+        {
+            "type": "java",
             "name": "PlayerFormV9",
             "request": "launch",
             "mainClass": "chantapinich.pasinee.lab10.PlayerFormV9",
