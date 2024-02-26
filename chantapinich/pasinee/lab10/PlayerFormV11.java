@@ -94,8 +94,8 @@ public class PlayerFormV11 extends PlayerFormV10 {
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 showFilePath("Opening");
             }
-        } 
-         // If the save menu item is clicked, show file chooser for saving files
+        }
+        // If the save menu item is clicked, show file chooser for saving files
         else if (src == saveMI) {
             int returnValue = fileChooser.showSaveDialog(this);
             if (returnValue == JFileChooser.APPROVE_OPTION) {

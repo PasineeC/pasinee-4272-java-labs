@@ -54,7 +54,7 @@ public class PlayerFormV10 extends PlayerFormV9 {
     public void showFileMessage(String itemName) {
         JOptionPane.showMessageDialog(this, "You click menu " + itemName);
     }
-    
+
     // Handles action events from menu items
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -63,15 +63,15 @@ public class PlayerFormV10 extends PlayerFormV9 {
         // If a color menu item is clicked
         if (src == redMI || src == greenMI || src == blueMI) {
             setTextFieldColor((src == redMI) ? Color.RED : (src == greenMI) ? Color.GREEN : Color.BLUE);
-        } 
+        }
         // If a size menu item is clicked
         else if (src == num16MI || src == num20MI || src == num24MI) {
             noteTa.setFont(new Font("Serif", Font.BOLD, (src == num16MI) ? 16 : (src == num20MI) ? 20 : 24));
-        } 
+        }
         // If a file-related menu item is clicked
         else if (src == newMI || src == openMI || src == saveMI) {
             showFileMessage((src == newMI) ? "New" : (src == openMI) ? "Open" : "Save");
-        } 
+        }
         // If the exit menu item is clicked
         else if (src == exitMI) {
             this.dispose();
