@@ -47,6 +47,7 @@ public class PlayerFormV6 extends PlayerFormV5 implements ActionListener {
 
     public PlayerFormV6(String title) {
         super(title);
+        
     }
 
     public static void createAndShowGUI() {
@@ -120,9 +121,6 @@ public class PlayerFormV6 extends PlayerFormV5 implements ActionListener {
     }
 
     protected void handleTextField(JTextField src) {
-        nameTextField.setName("Name");
-        nationalTextField.setName("Nationality");
-        birthTextField.setName("Date of Birth");
         String textfieldName = ((JTextField) src).getName();
         String textfieldValue = ((JTextField) src).getText();
         JOptionPane.showMessageDialog(this, textfieldName + " is changed to " + textfieldValue);
@@ -146,5 +144,8 @@ public class PlayerFormV6 extends PlayerFormV5 implements ActionListener {
         nameTextField.addActionListener(this);
         nationalTextField.addActionListener(this);
         birthTextField.addActionListener(this);
+        nameTextField.setName("Name");
+        nationalTextField.setName("Nationality");
+        birthTextField.setName("Date of Birth");
     }
 }
