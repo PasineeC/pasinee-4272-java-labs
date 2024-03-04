@@ -35,7 +35,7 @@ import chantapinich.pasinee.lab8.PlayerFormV5;
 
 public class PlayerFormV6 extends PlayerFormV5 implements ActionListener {
     protected String name, nation, birth, hobbies, type;
-    protected StringBuffer textShow = new StringBuffer(" ");
+    protected StringBuffer textShow = new StringBuffer("");
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
