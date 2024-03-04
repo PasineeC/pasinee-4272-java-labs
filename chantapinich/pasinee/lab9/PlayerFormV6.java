@@ -103,28 +103,40 @@ public class PlayerFormV6 extends PlayerFormV5 implements ActionListener {
         textShow.append(" and plays " + sportSelected.toString());
     }
 
+    protected void handleSubmitButton(){
+        getTextField();
+        getGender();
+        getPlayerType();
+        getHobbies();
+        getSport();
+        JOptionPane.showMessageDialog(this, textShow.toString());
+        textShow.setLength(0);
+    }
+
+    protected void handleResetButton(){
+        nameTextField.setText(null);    
+        nationalTextField.setText(null);
+        birthTextField.setText(null);
+    }
+
+    protected void handleTextField(JTextField src) {
+        nameTextField.setName("Name");
+        nationalTextField.setName("Nationality");
+        birthTextField.setName("Date of Birth");
+        String textfieldName = ((JTextField) src).getName();
+        String textfieldValue = ((JTextField) src).getText();
+        JOptionPane.showMessageDialog(this, textfieldName + " is changed to " + textfieldValue);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object srcObject = e.getSource();
-        if (srcObject == submitButton) {
-            getTextField();
-            getGender();
-            getPlayerType();
-            getHobbies();
-            getSport();
-            JOptionPane.showMessageDialog(this, textShow.toString());
-            textShow.setLength(0);
-        } else if (srcObject == resetButton) {
-            nameTextField.setText(null);
-            nationalTextField.setText(null);
-            birthTextField.setText(null);
-        } else if (srcObject instanceof JTextField) {
-            nameTextField.setName("Name");
-            nationalTextField.setName("Nationality");
-            birthTextField.setName("Date of Birth");
-            String textfieldName = ((JTextField) srcObject).getName();
-            String textfieldValue = ((JTextField) srcObject).getText();
-            JOptionPane.showMessageDialog(this, textfieldName + " is changed to " + textfieldValue);
+        Object src = e.getSource();
+        if (src == submitButton) {
+            handleSubmitButton();
+        } else if (src == resetButton) {
+            handleResetButton();
+        } else if (src instanceof JTextField) {
+            handleTextField((JTextField) src);
         }
     }
 
