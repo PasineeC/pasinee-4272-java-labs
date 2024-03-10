@@ -3,7 +3,6 @@ package chantapinich.pasinee.lab11;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -11,16 +10,17 @@ import java.time.format.DateTimeParseException;
 import chantapinich.pasinee.lab10.PlayerFormV11;
 
 /*
- * This class, PlayerFormV12, extends PlayerFormV11 and adds functionality to handle date input validation,
- * ensuring that the entered date of birth is in the correct format. It also handles focusing on the next text field
- * when the current text field is filled.
+ * This class, PlayerFormV12, extends PlayerFormV11 and implements additional functionality for handling
+ * date input validation. It overrides the handleTextField method to handle date input validation separately.
+ * 
+ * Attributes:
+ * - date: LocalDate object to store the parsed date.
+ * - formatter: DateTimeFormatter object to specify the date format.
  * 
  * Methods:
- * - textFieldName(): Assigns names to the text fields.
- * - handleDateTextField(JTextField textField, ActionEvent e): Handles the validation of the date text field.
- * - handleNormalTextField(JJTextFieldTextField textField,  nextComponent, ActionEvent e): Handles normal text fields.
- * - handleTextField(JTextField tf, ActionEvent e): // Identifies which text field caused the action event and manages it accordingly.
- * - actionPerformed(ActionEvent e): Overrides the method to handle action events from text fields.
+ * - handleDateTextField: Method to handle date input validation.
+ * - handleNormalTextField: Method to handle validation for normal text fields.
+ * - handleTextField: Overridden method to handle text field input based on the text field type.
  * 
  * Author: Pasinee Chantapinich
  * ID: 663040427-2
@@ -52,58 +52,35 @@ public class PlayerFormV12 extends PlayerFormV11 {
         msw.enableKeyboard();
     }
 
-    protected void textFieldName() {
-        nameTextField.setName("Name");
-        nationalTextField.setName("Nationality");
-        birthTextField.setName("Date of Birth");
-    }
-
-    protected void handleDateTextField(JTextField textField, ActionEvent e) {
+    protected void handleDateTextField(JTextField textField) {
         try {
-            textFieldName();
             formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             date = LocalDate.parse(textField.getText(), formatter);
-            super.actionPerformed(e);
+            super.handleTextField(textField);
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(this, "Please enter a valid date in " + birthTextField.getName());
         }
     }
 
-    protected void handleNormalTextField(JTextField textField, JTextField nextComponent, ActionEvent e) {
-        textFieldName();
+    protected void handleNormalTextField(JTextField textField, JTextField nextComponent) {
         if (textField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter some data in " + textField.getName());
-            textField.requestFocusInWindow();
             nextComponent.setEnabled(false);
         } else {
+            nextComponent.requestFocusInWindow();
             nextComponent.setEnabled(true);
-            super.actionPerformed(e);
-        }
-    }
-
-    protected void handleTextField(JTextField tf, ActionEvent e) {
-        if (tf == birthTextField) {
-            handleDateTextField(tf, e);
-        } else if (tf == nameTextField) {
-            handleNormalTextField(nameTextField, nationalTextField, e);
-        } else if (tf == nationalTextField) {
-            handleNormalTextField(nationalTextField, birthTextField, e);
+            super.handleTextField(textField);
         }
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        Object src = e.getSource();
-        name = nameTextField.getText();
-        nation = nationalTextField.getText();
-        birth = birthTextField.getText();
-
-        if (src == nameTextField) {
-            handleTextField(nameTextField, e);
-        } else if (src == nationalTextField) {
-            handleTextField(nationalTextField, e);
-        } else if (src == birthTextField) {
-            handleTextField(birthTextField, e);
+    protected void handleTextField(JTextField tf) {
+        if (tf == birthTextField) {
+            handleDateTextField(tf);
+        } else if (tf == nameTextField) {
+            handleNormalTextField(nameTextField, nationalTextField);
+        } else if (tf == nationalTextField) {
+            handleNormalTextField(nationalTextField, birthTextField);
         }
     }
 }
